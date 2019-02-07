@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DiffIt</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="DiffIt.js"></script>
+</head>
+
+<body class="bg-secondary">
+<nav class="navbar navbar-dark bg-dark fixed-top" style="margin: 0 0 70 0;">
+    <h1 class="navbar-brand">DiffIt</h1>
+    <textarea class="bg-dark border-dark text-muted form-control form-control-sm col" oninput="tsv()" id="TSV" rows="1" placeholder="Enter TSV here"></textarea>
+</nav>
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="card border-dark" style="width:80%; margin:auto">
+    <h4 class="card-header bg-dark text-white text-center">
+        <!--style="background-color:#5c656d; ">-->
+        DiffIt
+    </h4>
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col" style="width:40%">
+                <textarea class="form-control" id="leftContent" placeholder="old text here" rows="10"></textarea>
+            </div>
+            <div class="col" style="width:40%">
+                <textarea class="form-control" id="rightContent" placeholder="new text here" rows="10"></textarea>
+            </div>
+        </div>
+        <br>
+        <div class="input-group col">
+            <input type="text" class="form-control col-md-2" placeholder="Delimiter" id="delimit">
+            <div class="input-group-append"  tabindex="1" style="width:90%">
+                <button class="btn btn-outline-secondary col" type="button" onclick="diffIt()">DiffIt</button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container" id="diffPane" style="width:90%; margin:auto; display:none">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">+/-</th>
+                    <th scope="col">Content</th>
+                </tr>
+            </thead>
+            <tbody id="list"></tbody>
+        </table>
+    </div>
+</div>
+<br>
+<br>
+</body>
+</html>
